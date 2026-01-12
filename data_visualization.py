@@ -104,3 +104,142 @@ plt.show()
 # =========================
 # END OF MATPLOTLIB
 # =========================
+
+# =========================
+# SEABORN COMPLETE MASTER FILE
+# =========================
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+# -------------------------
+# 1. LOAD DATASETS
+# -------------------------
+tips = sns.load_dataset("tips")
+titanic = sns.load_dataset("titanic")
+iris = sns.load_dataset("iris")
+
+# -------------------------
+# 2. BASIC SETTINGS
+# -------------------------
+sns.set_theme(style="darkgrid")
+
+# -------------------------
+# 3. LINE PLOT
+# -------------------------
+sns.lineplot(x="size", y="total_bill", data=tips)
+plt.show()
+
+# -------------------------
+# 4. SCATTER PLOT
+# -------------------------
+sns.scatterplot(x="total_bill", y="tip", hue="sex", data=tips)
+plt.show()
+
+# -------------------------
+# 5. BAR PLOT
+# -------------------------
+sns.barplot(x="day", y="total_bill", data=tips)
+plt.show()
+
+# -------------------------
+# 6. COUNT PLOT
+# -------------------------
+sns.countplot(x="day", data=tips)
+plt.show()
+
+# -------------------------
+# 7. HISTOGRAM
+# -------------------------
+sns.histplot(tips["total_bill"], bins=20, kde=True)
+plt.show()
+
+# -------------------------
+# 8. BOX PLOT
+# -------------------------
+sns.boxplot(x="day", y="total_bill", data=tips)
+plt.show()
+
+# -------------------------
+# 9. VIOLIN PLOT
+# -------------------------
+sns.violinplot(x="day", y="total_bill", data=tips)
+plt.show()
+
+# -------------------------
+# 10. STRIP PLOT
+# -------------------------
+sns.stripplot(x="day", y="total_bill", data=tips)
+plt.show()
+
+# -------------------------
+# 11. SWARM PLOT
+# -------------------------
+sns.swarmplot(x="day", y="total_bill", data=tips)
+plt.show()
+
+# -------------------------
+# 12. HEATMAP
+# -------------------------
+corr = iris.corr(numeric_only=True)
+sns.heatmap(corr, annot=True, cmap="coolwarm")
+plt.show()
+
+# -------------------------
+# 13. PAIR PLOT
+# -------------------------
+sns.pairplot(iris, hue="species")
+plt.show()
+
+# -------------------------
+# 14. JOINT PLOT
+# -------------------------
+sns.jointplot(x="total_bill", y="tip", data=tips, kind="scatter")
+plt.show()
+
+# -------------------------
+# 15. KDE PLOT
+# -------------------------
+sns.kdeplot(tips["total_bill"], shade=True)
+plt.show()
+
+# -------------------------
+# 16. REGRESSION PLOT
+# -------------------------
+sns.regplot(x="total_bill", y="tip", data=tips)
+plt.show()
+
+# -------------------------
+# 17. CATPLOT (ALL-IN-ONE)
+# -------------------------
+sns.catplot(x="day", y="total_bill", data=tips, kind="box")
+plt.show()
+
+# -------------------------
+# 18. FACET GRID
+# -------------------------
+g = sns.FacetGrid(tips, col="time", row="sex")
+g.map(sns.scatterplot, "total_bill", "tip")
+plt.show()
+
+# -------------------------
+# 19. STYLE & PALETTES
+# -------------------------
+sns.set_style("whitegrid")
+sns.set_palette("Set2")
+
+sns.boxplot(x="day", y="total_bill", data=tips)
+plt.show()
+
+# -------------------------
+# 20. SAVE PLOT
+# -------------------------
+sns.lineplot(x="size", y="tip", data=tips)
+plt.savefig("seaborn_plot.png")
+plt.show()
+
+# =========================
+# END OF SEABORN
+# =========================
