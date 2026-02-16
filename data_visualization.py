@@ -240,6 +240,4 @@ sns.lineplot(x="size", y="tip", data=tips)
 plt.savefig("seaborn_plot.png")
 plt.show()
 
-# =========================
-# END OF SEABORN
-# =========================
+
