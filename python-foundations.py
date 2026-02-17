@@ -28,6 +28,7 @@ print(b, c)
 print(10 + 5)     # Arithmetic
 print(10 > 5)     # Comparison
 print(True and False)  # Logical
+print(5 in [1, 2, 3, 4, 5])  # Membership
 
 # -------------------------
 # 4. Conditional Statements
